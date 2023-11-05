@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: olivedrab;
+    font-family: fantasy;
+}
+
+.title {
+    padding: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    font-weight: 700;
+    color: burlywood;
+    text-align: center;
+}
+
+.settings-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: burlywood;
+    font-family: 'Pacifico';
+    text-align: center;
+}
+
+#main {
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;justify-content: space-evenly;
+    align-items: center;
+}
+
+/* SETTINGS */
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    background-color: darkolivegreen;
+    border: 1px solid darkkhaki;
+    border-radius: 20px;
+    font-family: cursive;
+}
+
+.buttons {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+button {
+    width: 200px;
+    height: 30px;
+}
+
+/* CONTAINER */
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.cell {
+    width: 27px;
+    height: 27px;
+    background-color: white;
+}
