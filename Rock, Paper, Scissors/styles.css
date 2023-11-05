@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: dimgrey;
+    color: rgb(28, 28, 32);
+}
+
+.title {
+    top: 0;
+    padding: 20px 0;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    background-color:darkolivegreen
+}
+
+.selections {
+    margin: auto;
+    padding: 10px;
+    width: 700px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.results-div, .game-count {
+    padding: 20px;
+    font-family: Verdana;
+    font-size: 32px;
+}
+
+.results-div {
+    text-align: center;
+}
+
+.game-count {
+    height: 50px;
+    position: fixed;
+    top: 100;
+    left: 30;
+    font-size: 24px;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
