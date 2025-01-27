@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Nunito', sans-serif;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+.restaurant-name {
+  font-family: 'Nunito', sans-serif;
+}
+
+.welcome-div {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.welcome-div .container {
+  z-index: 2; /* Ensure content stays above the background images */
+  position: relative;
+}
+
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  z-index: 1;
+}
+
+.slideshow-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.slideshow-images.active {
+  opacity: 1;
+}
+
+.menu-container {
+  margin: 2rem auto;
+  max-width: 900px;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #6b4e37; /* Coffee-like color */
+}
+
+.menu-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #6b4e37;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.menu-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #6b4e37;
+}
+
+.menu-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-card li {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-card li:last-child {
+  border-bottom: none;
+}
+
+.footer-note {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b4e37;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.menu-items-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* General Styles for Containers */
+.about-container, .contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  justify-content: center;
+  width: 70%;
+  padding: 1.2rem;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Space between sections */
+}
+
+/* Heading Styles */
+.about-container h2, .contact-container h2 {
+  text-align: center;
+  color: #3f2617; /* Dark text color */
+  font-size: 24px; /* Larger font size */
+  margin-bottom: 15px; /* Space below headings */
+}
+
+/* Paragraph Styles for About Section */
+.about-container p {
+  color: #555; /* Slightly lighter text */
+  line-height: 1.6; /* Increased line height */
+}
+
+/* Form Styles for Contact Section */
+.contact-container form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+}
+
+/* Label Styles */
+.contact-container label {
+  margin-bottom: 5px; /* Space below labels */
+  font-weight: bold; /* Bold labels for emphasis */
+}
+
+/* Input and Textarea Styles */
+.contact-container input,
+.contact-container textarea {
+  padding: 10px; /* Comfortable padding */
+  margin-bottom: 15px; /* Space between inputs */
+  border: 1px solid #ccc; /* Light border color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Textarea Specific Styles */
+.contact-container textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Button Styles */
+.contact-container button {
+  padding: 10px;
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.contact-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 600px) {
+  .about-container, .contact-container {
+    padding: 15px;
+  }
+
+  .about-container h2, .contact-container h2 {
+    font-size: 20px;
+  }
+}
