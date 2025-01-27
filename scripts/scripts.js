@@ -47,6 +47,12 @@ const projects = [
         description: "The classic game implemented in JavaScript",
         image: "images/tic-tac-toe.png",
         url: "https://github.com/murungiallan/TOP/blob/main/projects/202-tic-tac-toe/"
+    },
+    {
+        title: "Restaurant Page",
+        description: "A website showing my restaurant. Implemented in HTML, CSS, JS",
+        image: "images/restaurant.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/203-restaurant-page/"
     }
 ];
 
