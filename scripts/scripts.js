@@ -1,43 +1,82 @@
-// Fetch projects from the 'projects' folder
-fetchProjects();
+// Static JSON data to simulate project data
+const projects = [
+    {
+        title: "Odin Recipes",
+        description: "A simple recipe showcase",
+        image: "images/recipes.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/001-recipes/"
+    },
+    {
+        title: "Rock, Paper, Scissors",
+        description: "A classic game implementation",
+        image: "images/rock-paper-scissors.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/002-rock-paper-scissors/"
+    },
+    {
+        title: "Etch A Sketch",
+        description: "A pixel drawing tool",
+        image: "images/etch-a-sketch.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/003-etch-a-sketch/"
+    },
+    {
+        title: "Calculator",
+        description: "A basic web calculator",
+        image: "images/calculator.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/004-calculator/"
+    },
+    {
+        title: "Sign Up Form",
+        description: "A responsive sign-up form",
+        image: "images/sign-up-form.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/101-sign-up-form/"
+    },
+    {
+        title: "Admin Dashboard",
+        description: "An example admin dashboard",
+        image: "images/dashboard.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/102-admin-dashboard/"
+    },
+    {
+        title: "Library",
+        description: "A simple library app",
+        image: "images/library.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/201-library/"
+    },
+    {
+        title: "Tic Tac Toe",
+        description: "The classic game implemented in JavaScript",
+        image: "images/tic-tac-toe.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/202-tic-tac-toe/"
+    }
+];
 
-function fetchProjects() {
-    // Make an AJAX request to fetch the projects data
-    // Replace 'projects-data.json' with the actual path to your JSON file
-    fetch('projects-data.json')
-        .then(response => response.json())
-        .then(data => {
-            // Loop through the projects data and create project cards
-            data.forEach(project => {
-                createProjectCard(project);
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching projects:', error);
-        });
-}
+// Dynamically populate the projects container
+const projectsContainer = document.getElementById("projects-container");
 
-function createProjectCard(project) {
-    // Create a project card element
-    const projectCard = document.createElement('div');
-    projectCard.classList.add('col-md-4', 'project-card');
+projects.forEach(project => {
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("col-md-4", "project-card");
 
-    // Create the card content
-    const cardContent = `
+    projectCard.innerHTML = `
         <div class="card">
             <img src="${project.image}" class="card-img-top" alt="${project.title}">
             <div class="card-body">
                 <h5 class="card-title">${project.title}</h5>
                 <p class="card-text">${project.description}</p>
-                <a href="${project.url}" class="btn btn-primary">View Project</a>
+                <a href="${project.url}" class="btn btn-primary" target="_blank">View Project</a>
             </div>
         </div>
     `;
 
-    // Set the card content as the inner HTML of the project card
-    projectCard.innerHTML = cardContent;
-
-    // Append the project card to the projects container
-    const projectsContainer = document.getElementById('projects-container');
     projectsContainer.appendChild(projectCard);
-}
+});
+
+// Set current year in the footer
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Toggle Dark/Light Mode
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-light");
+});
