@@ -1,0 +1,42 @@
+// Import all of Bootstrap's CSS
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#app {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.project, .todo-item {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.project:hover, .todo-item:hover {
+    transform: scale(1.02);
+}
+
+#addProject {
+    height: fit-content;
+    width: fit-content;
+}
+
+.badge {
+    margin-left: 0.5rem;
+}
