@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 100%;
+    margin: 2rem;
+}
+
+h2 {
+    margin-bottom: 1.2rem;
+}
+
+.input-div {
+    margin: 1.3rem 0;
+}
+
+label, input {
+    display: inline;
+}
+
+label p {
+    margin-bottom: 10px;
+}
+
+input {
+    min-width: 45vw;
+    padding: 7px 10px;
+    border-radius: 20px;
+    border: 1px solid #a7a7a7;
+    outline: none;
+}
+
+.submit {
+    background-color: rgb(182, 182, 182);
+    min-width: 100px;
+    padding: 0.4rem 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.submit:hover {
+    background-color: rgb(160, 160, 160)
+}
+
+input:active, input:hover, input:focus {
+    border: 1px solid rgb(63, 63, 63);
+}
+
+input:invalid {
+    border-color: rgb(192, 0, 0);
+    background-color: #fdd;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+.error {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 80%;
+    color:rgb(192, 0, 0);
+    background-color: #fff;
+}
+
+.error.active {
+    padding: 0.3em;
+}
+
+select {
+    min-width: 47vw;
+    padding: 7px 10px;
+    border-radius: 20px;
+    border: 1px solid #a7a7a7;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+select:focus {
+    border: 1px solid rgb(63, 63, 63);
+}
+
+select:invalid {
+    border-color: rgb(192, 0, 0);
+    background-color: #fdd;
+}
+
+.country-code {
+    font-size: 0.5rem;
+}

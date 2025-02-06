@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - Form Validation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Validation Using JS</h2>
+        <form id="locationForm" novalidate>
+            <div class="input-div">
+                <label for="Email">
+                    <p>Email:</p>
+                    <input type="email" id="emailInput" class="email-input" name="Email" minlength="8">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
+            <div class="input-div">
+                <label for="countryInput">
+                    <p>Country:</p>
+                    <select id="countryInput" class="country-input" name="Country">
+                        <option value="">Select your country</option>
+                    </select>
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
+            <div class="input-div">
+                <label for="Zip-code">
+                    <p>Zip Code:</p>
+                    <input type="number" id="zipCodeInput" class="zip-code-input" name="Zip-code">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
+            <div class="input-div">
+                <label for="Password">
+                    <p>Password:</p>
+                    <input type="password" id="passwordInput" class="password-input" name="Password">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
+            <div class="input-div">
+                <label for="Password-confirmation">
+                    <p>Password Confirmation:</p>
+                    <input type="password" id="passwordConfirmationInput" class="password-confirmation-input" name="Password-confirmation">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
