@@ -1,36 +1,110 @@
 body {
     background-color: rgb(235, 235, 235);
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Signika Negative', serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
+    justify-content: center;
+    padding-top: 2rem;
+    min-height: 100%;
     margin: 0;
-    transition: background-color 0.5s ease;
+    background-image: url('../images/background.jpg');
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-color: rgb(235, 235, 235, 0.5);
+    color: rgb(255, 255, 255);
+    overflow-x: hidden;
+}
+
+.weather {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #weatherForm {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 1.2rem;
-    margin-bottom: 20px;
 }
 
 .search {
+    min-width: 30vw;
     display: flex;
     align-items: center;
-    border: 1px solid #8b8b8b;
-    box-shadow: 1px 1px #c2c2c2;
+    justify-content: space-between;
+    border: 2px solid rgb(192, 192, 192);
+    box-shadow: 1px 1px #777777;
     padding: 10px;
     border-radius: 1.2rem;
+    background: none;
+    color: #Fff;
 }
 
-#locationInput {
+input[type="text"] {
+    background-color: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: white;
+    width: 70%;
+}
+
+#locationInput, #locationInput:focus, #locationInput:active {
     outline: none;
     border-color: transparent;
-    background-color: #f0f0f0;
+    background-color: transparent !important;
+    padding: 7px;
+    color: #fff;
+}
+
+#locationInput::placeholder {
+    color: #fff;
+}
+
+/* Target the dropdown suggestions */
+.ui-autocomplete {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Remove background color when hovering over suggestions */
+.ui-menu-item-wrapper:hover,
+.ui-menu-item-wrapper:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Adjust transparency as needed */
+    color: #fff !important;
+}
+
+/* Remove focus highlight */
+.ui-menu-item {
+    background: transparent !important;
+    border: none !important;
+}
+
+input::-webkit-calendar-picker-indicator {
+    background: none !important;
+    color: transparent !important;
+}
+
+.weather-btn {
+    width: auto;
+    height: fit-content;
+    background-color: #4d2e97;
+    color: white;
+    outline: none;
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 5px 10px;
+}
+
+.weather-btn:hover, .weather-btn:focus {
+    background-color: #3e2677;
 }
 
 .location-img {
@@ -39,20 +113,39 @@ body {
 }
 
 #weatherDisplay {
-    border: 1px solid transparent;
-    padding: 20px;
-    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border: none;
+    padding: 1.2rem;
     background-color: transparent;
     text-align: center;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Initially slightly below */
+    opacity: 0;
+    transform: translateX(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
-#weatherDisplay.show { /* Class to trigger animation */
+
+#weatherDisplay.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
+
 #weatherDisplay img {
     margin-top: 10px;
     max-width: 100px;
+}
+
+.forecast-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.forecast-day {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    min-width: 100px;
 }

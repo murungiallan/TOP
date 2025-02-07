@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
-    <h1>Weather App</h1>
-    <form id="weatherForm">
-        <div class="search">
-            <input type="text" id="locationInput" class="location-search" placeholder="Enter a location" required>
-            <img src="assets/images/location.webp" alt="location image" class="location-img">
-        </div>
-        <button type="submit" class="weather-btn">Get Weather</button>
-    </form>
-    <div id="weatherDisplay"></div>
+    <div class="weather">
+        <h1>Weather App</h1>
+        <form id="weatherForm">
+            <div class="search">
+                <input type="text" id="locationInput" class="location-search" placeholder="Enter a location" required>
+                <img src="assets/images/location.png" alt="location image" class="location-img">
+            </div>
+            <button type="submit" class="weather-btn">Get Weather</button>
+        </form>
+        <div id="weatherDisplay"></div>
+    </div>
 </body>
 </html>

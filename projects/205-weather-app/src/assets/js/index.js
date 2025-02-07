@@ -1,13 +1,8 @@
 import "../css/app.css";
-import rainImg from "../images/rain.jpeg";
-import snowImg from "../images/snow.jpeg";
-import thunderImg from "../images/thunder.jpeg";
-import dayImg from "../images/day.jpeg";
-import nightImg from "../images/night.jpeg";
 
 const apiKey = process.env.WEATHER_API_KEY;
 async function fetchWeather(location) {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=6&aqi=yes&alerts=yes`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -27,46 +22,57 @@ async function fetchWeather(location) {
 function processWeatherData(data) {
     return {
         location: data.location.name,
-        temperature: data.current.temp_c, // Use Celsius
-        feelsLike: data.current.feelslike_c, // Use Celsius
+        localtime: data.location.localtime,
+        temperature: data.current.temp_c,
+        feelsLike: data.current.feelslike_c,
         humidity: data.current.humidity,
         description: data.current.condition.text,
-        icon: `https:${data.current.condition.icon}` // WeatherAPI icon URL is already https
+        icon: `https:${data.current.condition.icon}`,
+        windSpeed: data.current.wind_kph, 
+        airQuality: data.current.air_quality["us-epa-index"], 
+        forecast: data.forecast.forecastday.map(day => ({
+            date: day.date,
+            maxTemp: day.day.maxtemp_c,
+            minTemp: day.day.mintemp_c,
+            condition: day.day.condition.text,
+            icon: `https:${day.day.condition.icon}`
+        }))
     };
 }
 
 function displayWeather(data) {
     const weatherDiv = document.getElementById('weatherDisplay');
-    weatherDiv.innerHTML = `
-        <h2>Weather in ${data.location}</h2>
-        <p>Temperature: ${data.temperature}°C</p>
-        <p>Feels Like: ${data.feelsLike}°C</p>
-        <p>Humidity: ${data.humidity}%</p>
-        <p>Condition: ${data.description}</p>
-        <img src="${data.icon}" alt="${data.description}">
+    
+    // Current Weather
+    let weatherHTML = `
+        <div class='weather-forecast'>
+            <h2>Weather in ${data.location}</h2>
+            <img src="${data.icon}" alt="${data.description}">
+            <p><strong>Local Time:</strong> ${data.localtime}</p>
+            <p><strong>Temperature:</strong> ${data.temperature}°C</p>
+            <p><strong>Feels Like:</strong> ${data.feelsLike}°C</p>
+            <p><strong>Humidity:</strong> ${data.humidity}%</p>
+            <p><strong>Condition:</strong> ${data.description}</p>
+            <p><strong>Wind Speed:</strong> ${data.windSpeed} km/h</p>
+            <p><strong>Air Quality Index:</strong> ${data.airQuality} (US EPA)</p>
+        </div>            
     `;
 
-    // Set background image based on weather condition
-    const body = document.body;
-    let backgroundImage = '';
+    // Forecast for 6 Days
+    weatherHTML += `<div class='forecast-div'><h3>6-Day Forecast</h3><div class="forecast-container">`;
+    data.forecast.forEach(day => {
+        weatherHTML += `
+            <div class="forecast-day">
+                <p>${new Date(day.date).toLocaleDateString('en-US', { weekday: 'short' })}</p>
+                <img src="${day.icon}" alt="${day.condition}">
+                <p>${day.condition}</p>
+                <p>${day.maxTemp}°C / ${day.minTemp}°C</p>
+            </div>
+        `;
+    });
+    weatherHTML += `</div></div>`;
 
-    const condition = data.description.toLowerCase(); // Use lowercase for easier comparison
-    if (condition.includes('rain')) {
-        backgroundImage = `url(${rainImg})`; // Replace with your rain image URL
-    } else if (condition.includes('snow')) {
-        backgroundImage = `url(${snowImg})`; // Replace with your snow image URL
-    } else if (condition.includes('clear') || condition.includes('sun')) { // Check for clear or sun
-        backgroundImage = `url(${dayImg})`; // Replace with your sun image URL
-    } else if (condition.includes('thunder')) {
-        backgroundImage = `url(${thunderImg})`; // Replace with your thunder image URL
-    } else if (condition.includes('night')) { // Check for night
-        backgroundImage = `url(${nightImg})`; // Replace with your night image URL
-    }
-
-    body.style.backgroundImage = backgroundImage;
-
-
-    // Show weather display with animation
+    weatherDiv.innerHTML = weatherHTML;
     weatherDiv.classList.add('show');
 }
 
