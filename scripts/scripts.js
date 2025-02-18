@@ -66,7 +66,7 @@ const projects = [
         image: "images/weather.png",
         url: "https://github.com/murungiallan/TOP/blob/main/projects/205-weather-app/"
     }
-];
+];  
 
 // Dynamically populate the projects container
 const projectsContainer = document.getElementById("projects-container");
