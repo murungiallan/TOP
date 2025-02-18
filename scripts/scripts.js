@@ -53,6 +53,18 @@ const projects = [
         description: "A website showing my restaurant. Implemented in HTML, CSS, JS",
         image: "images/restaurant.png",
         url: "https://github.com/murungiallan/TOP/blob/main/projects/203-restaurant-page/"
+    },
+    {
+        title: "To-Do List",
+        description: "A task management app to keep track of daily activities",
+        image: "images/todo.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/204-to-do-list/"
+    },
+    {
+        title: "Weather App",
+        description: "A weather app that fetches real-time weather data",
+        image: "images/weather.png",
+        url: "https://github.com/murungiallan/TOP/blob/main/projects/205-weather-app/"
     }
 ];
 
@@ -79,10 +91,3 @@ projects.forEach(project => {
 
 // Set current year in the footer
 document.getElementById("year").textContent = new Date().getFullYear();
-
-// Toggle Dark/Light Mode
-const themeToggle = document.getElementById("theme-toggle");
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("bg-dark");
-    document.body.classList.toggle("text-light");
-});
